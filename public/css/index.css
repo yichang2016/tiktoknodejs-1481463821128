@@ -1,0 +1,37 @@
+.buttonbar {
+    padding: 9px 14px;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 4px;
+    margin-bottom: 14px;
+}
+
+.information {
+    padding: 9px 14px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 4px;
+    min-height: 200px;
+}
+
+.ctl_action {
+    margin-bottom: 14px;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 4px;
+    min-height: 50px;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.ctl_status {
+    margin-bottom: 14px;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 4px;
+    min-height: 200px;
+    max-height: 500px;
+    overflow-y: scroll;
+}

@@ -32,8 +32,45 @@ http.listen(appEnv.port, '0.0.0.0', function() {
 
 io.on("connection", function(socket) {
 
-    socket.on("control", function(key) {
-        io.sockets.emit('message', key);
+    socket.on("control", function(data) {
+        //check target
+        switch (data.target) {
+            case 'light':
+                io.sockets.emit('light', data.action);
+                break;
+            case 'camera':
+                io.sockets.emit('camera', data.action);
+                break;
+            case 'motor':
+                io.sockets.emit('motor', data.action);
+                break;
+            case 'sensor':
+                io.sockets.emit('sensor', data.action);
+                break;
+            default:
+                io.sockets.emit('message', 'not this target' + data.target);
+                break;
+        }
     });
 
+    socket.on("status", function(data) {
+        //check target
+        switch (data.source) {
+            case 'light':
+                io.sockets.emit('data', data);
+                break;
+            case 'camera':
+                io.sockets.emit('data', data);
+                break;
+            case 'motor':
+                io.sockets.emit('data', data);
+                break;
+            case 'sensor':
+                io.sockets.emit('data', data);
+                break;
+            default:
+                io.sockets.emit('message', 'not this source' + data.source);
+                break;
+        }
+    });
 });
