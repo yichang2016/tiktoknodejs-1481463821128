@@ -25,24 +25,15 @@ app.use(express.static(__dirname + '/public'));
 var appEnv = cfenv.getAppEnv();
 
 // start server on the specified port and binding host
-app.listen(appEnv.port, '0.0.0.0', function() {
+http.listen(appEnv.port, '0.0.0.0', function() {
     // print a message when the server starts listening
     console.log("server starting on " + appEnv.url);
 });
 
 io.on("connection", function(socket) {
 
-    socket.on("String", function(key) {
-        if (key == "w" || key == "s" || key == "a" || key == "d") {
-            console.log("Received " + key + " from frontend");
-
-            //************************
-            //fill in a method "io.sockets.emit(param1,param2)" in line 35
-            //The first parameter is the data type "message", the second parameter is the data you want to send
-            io.sockets.emit('message', key);
-        } else {
-            console.log("Not a direction order");
-        }
+    socket.on("control", function(key) {
+        io.sockets.emit('message', key);
     });
 
 });
