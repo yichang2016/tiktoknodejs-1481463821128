@@ -41,14 +41,13 @@ $(function() {
     var showData = function(data) {
         switch (data.source) {
             case 'camera':
-
+                var $cameraPhoto = $('.ctl_status_camera_photo');
                 if (data.code == 'ng') {
-                    $('.camera_photo').hide();
+                    $cameraPhoto.hide();
                 } else {
-                    $('.camera_photo').show();
-                    $('.camera_photo').attr('src', 'data:image/jpeg;' + data.img);
+                    $cameraPhoto.show();
+                    $cameraPhoto.attr('src', 'data:image/jpeg;' + data.img);
                 }
-                data.img = '';
                 break;
             default:
                 break;

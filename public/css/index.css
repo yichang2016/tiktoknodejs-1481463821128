@@ -35,3 +35,8 @@
     max-height: 500px;
     overflow-y: scroll;
 }
+
+.ctl_status_camera_photo {
+    min-width: 200px;
+    min-height: 100px;
+}
