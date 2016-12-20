@@ -46,7 +46,7 @@ $(function() {
                     $cameraPhoto.hide();
                 } else {
                     $cameraPhoto.show();
-                    $cameraPhoto.attr('src', 'data:image/jpeg;' + data.img);
+                    $cameraPhoto.attr('src', 'data:image/jpeg;base64,' + data.img);
                 }
                 break;
             default:
