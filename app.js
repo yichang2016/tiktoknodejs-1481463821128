@@ -36,16 +36,16 @@ io.on("connection", function(socket) {
         //check target
         switch (data.target) {
             case 'light':
-                io.sockets.emit('node-control', data.action);
+                io.sockets.emit('node-control', data);
                 break;
             case 'camera':
-                io.sockets.emit('node-control', data.action);
+                io.sockets.emit('node-control', data);
                 break;
             case 'motor':
-                io.sockets.emit('node-control', data.action);
+                io.sockets.emit('node-control', data);
                 break;
             case 'sensor':
-                io.sockets.emit('node-control', data.action);
+                io.sockets.emit('node-control', data);
                 break;
             default:
                 io.sockets.emit('message', 'not this target' + data.target);
