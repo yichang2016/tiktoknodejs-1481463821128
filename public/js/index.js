@@ -39,7 +39,21 @@ $(function() {
     };
 
     var showData = function(data) {
-        $('.information .ctl_status').html(JSON.stringify(data));
+        switch (data.source) {
+            case 'camera':
+                $('.information .ctl_status').html(JSON.stringify(data));
+                if (data.code == 'ng') {
+                    $('.camera_photo').hide();
+                } else {
+                    $('.camera_photo').show();
+                    $('.camera_photo').attr('src', 'data:image/jpeg;' + data.img);
+                }
+
+                break;
+            default:
+                $('.information .ctl_status').html(JSON.stringify(data));
+                break;
+        }
     };
 
     $('.ctl_light').click(function() {
