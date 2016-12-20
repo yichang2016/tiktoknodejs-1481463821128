@@ -2,7 +2,6 @@ $(function() {
     var hostName = window.location.host;
     var socket = io.connect(hostName);
 
-    var socket = io.connect(hostName);
     socket.on('message', function(data) {
         //get message from server
         console.log('socket message: [' + getTimeStamp() + ']' + JSON.stringify(data));
