@@ -102,7 +102,8 @@ $(function() {
 
         if (navigator.geolocation) {
             var locationSuccess = function(position) {
-                socket.emit('status', { type: 'status', source: 'sensor', status: position });
+                var status = { coords: { longitude: position.coords.longitude, latitude: position.coords.latitude } }
+                socket.emit('status', { type: 'status', source: 'sensor', status: status });
             };
             var locationError = function(err) {
                 console.error(err);
