@@ -49,6 +49,11 @@ $(function() {
                     $cameraPhoto.attr('src', 'data:image/jpeg;base64,' + data.img);
                 }
                 break;
+            case 'sensor':
+                var latlon = data.status.coords.latitude + "," + data.status.coords.longitude;
+                $('.ctl_status_map_google').attr('src', 'https://maps.googleapis.com/maps/api/staticmap?center=' + latlon + '&zoom=14&size=400x300&sensor=false');
+                $('.ctl_status_map_baidu').attr('src', '');
+                break;
             default:
                 break;
         }
